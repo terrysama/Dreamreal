@@ -1,0 +1,39 @@
+.navbar .nav-link {
+    position: relative;
+  }
+    
+.navbar .nav-link::before {
+    position: absolute;
+    background-color: #d9e0eb;
+    height: 2px;
+    width: 0%;
+    content: "";
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    transition: all 0.5s;
+    margin: 0 auto;
+}
+
+.navbar .nav-link:hover::before {
+    width: 100%;
+}
+
+@media screen and (min-width: 720px) {    
+    .scrolled {
+        background-color: #212529d8;
+        transition: 0.5s;
+    }
+}
+@media screen and (max-width: 719.9px) {
+   .scrolled {
+        background-color: #212529;
+        transition: 0.5s;
+    } 
+}
+
+
+.logo-size {
+    height: 60px;
+    width: 60px;
+}
