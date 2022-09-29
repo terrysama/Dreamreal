@@ -1,17 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
 
-@keyframes transitionIn {
-    from {
-        opacity: 0;
-        transform: rotateX(5deg);
-    }
-    
-    to {
-        opacity: 1;
-        transform: rotateX(0);
-    }
-}
-
 *, body {
     overflow-x: hidden;    
 }
@@ -19,28 +7,57 @@
 body {
     color: white;
     font-family: Montserrat, Helvetica, sans-serif;
+    background-color: #222228;
 }
 
-.content {  /* Attention */
-    animation: transitionIn 1s ease-in; 
+.rise {
+    opacity: 0;
+    animation: rise 0.8s ease-in-out forwards;
+}
+ 
+.rise.subheading {
+    animation: rise 1.2s ease-in-out forwards 0.5s;
 }
 
-/* #home.sect-one {
-    background: url("../../assets/img/backgrounds/sample-home.jpg") no-repeat;
-    background-size: cover;
-} */
+@keyframes rise {
+    0% {
+        transform: translateY(2rem);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 #home.grouped-sections {
-    background: url("../../assets/img/backgrounds/Vector\ 17.svg") no-repeat, url("../../assets/img/backgrounds/sample-home.jpg") no-repeat;
-    background-size: cover, 100% 50%;
+    background: url("../../assets/img/backgrounds/Vector\ 17.svg") no-repeat, url("../../assets/img/backgrounds/home-page-background.JPG") center top no-repeat;
+    background-size: cover, 100% 90%;
 }
 
 #about.grouped-sections {
-    background: url("../../assets/img/backgrounds/Vector\ 17.svg") no-repeat, url("../../assets/img/backgrounds/sample-about.jpg") no-repeat;
-    background-size: cover, 100% 50%;
+    background: url("../../assets/img/backgrounds/Vector\ 17.svg") no-repeat, url("../../assets/img/backgrounds/about-page-background.png") center top no-repeat;
+    background-size: cover, 100% 56%;
+}
+
+@media screen and (max-width: 792px){
+    #home.grouped-sections {
+        background: url("../../assets/img/backgrounds/Vector\ 17.svg") no-repeat, url("../../assets/img/backgrounds/home-page-background.JPG") center top no-repeat;
+        background-size: cover, 60rem 90rem;
+    }
+
+    #about.grouped-sections {
+        background: url("../../assets/img/backgrounds/Vector\ 17.svg") no-repeat, url("../../assets/img/backgrounds/about-page-background.png") center top no-repeat;
+        background-size: cover, auto;
+    }    
 }
 
 .sect-one {
-    padding: 30vh 0 40vh 0;
+    padding: 25vh 0 30vh 0;
+}
+
+.main-sect, .gallery-sect {
+    padding-top: 15vh !important;
 }
 
 .angled-white-bg, .dark-text {
@@ -67,49 +84,19 @@ body {
     background: linear-gradient(180deg, #21D2FE 1.04%, #42A6FC 49.48%, #677AFD 100%);
 }
 
-/* .gradient-outline {
-    border: 5px solid transparent;
-    border-image: linear-gradient(180deg, #21D2FE 1.04%, #42A6FC 49.48%, #677AFD 100%) 1;
-    border-radius: 50rem;
-    background-color: #42a5fc0c;
-    color: linear-gradient(180deg, #21D2FE 1.04%, #42A6FC 49.48%, #677AFD 100%);
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor; 
-    mask-composite: exclude;
-} */
-
-.gradient-outline {
-    position: relative;
-    z-index: 0;
-    background-color: #42a5fc0c;
-}
-.gradient-outline::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    border-radius: 50px; 
-    padding: 5px; 
-    background: linear-gradient(180deg, #21D2FE 1.04%, #42A6FC 49.48%, #677AFD 100%); 
-    mask: 
-       linear-gradient(#fff 0 0) content-box, 
-       linear-gradient(#fff 0 0);
-    -webkit-mask: 
-       linear-gradient(#fff 0 0) content-box, 
-       linear-gradient(#fff 0 0);
-    mask-composite: exclude; 
-    -webkit-mask-composite: xor;
+/* Contact Page */
+.contact-address a {
+    color: black;
 }
 
-input[type="text"].form-control, input[type="email"].form-control, textarea.form-control {
-    background-color : #d1d1d165;
-}
-
-footer a {
+.socials.buttons a {
     color: white;
 }
+
+input[type="text"].form-control, input[type="email"].form-control, textarea.form-control, textarea.form-control:focus {
+    background-color : #d1d1d165;
+}
+/* *** */
 
 .fade-in {
     opacity: 0;
@@ -133,20 +120,47 @@ footer a {
 }
 
 .from-left, .from-right, .from-bottom {
-    transition: transform 1s ease-in, opacity 0.8s ease-in;
+    transition: transform 1s ease-in-out, opacity 0.8s ease-in-out;
     opacity: 0;
 }
 
 .from-left.appear, .from-right.appear, .from-bottom.appear {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
     opacity: 1;
 }
 
-.contact-address a {
-    color: black;
+.card {
+    width: clamp(16rem, 18vw, 20rem);
 }
 
+/* Carousel */
+img.rounded-circle {
+    width: clamp(3rem, 5vw, 6rem);
+    height: clamp(3rem, 5vw, 6rem);
+}
 
-/* @media screen and (min-width: 992px){
-    
-} */
+.carousel-indicators .active {
+    background: linear-gradient(180deg, #256FB6 1.04%, #7B61FF 49.48%, #677AFD 100%);
+}
+
+.carousel-inner {
+    width: 80%;
+}
+
+.testimonial-header, .blockquote .artiste-name, .blockquote .category {
+    letter-spacing: 0.1rem;
+}
+
+/* FOOTER */
+footer a {
+    color: white;
+}
+
+footer a:hover, footer a:focus {
+    color: #677AFD;
+    text-decoration: underline !important;
+}
+
+.footer-brand-logo, .copyright {
+    width: clamp(7.5rem, 15vw, 12rem);
+}

@@ -1,14 +1,34 @@
-$(document).scroll(() => {
-    const nav = $('.navbar');
-    nav.toggleClass("scrolled", $(this).scrollTop() > nav.height());
-})
+const navBtn = document.querySelector('.navbar-toggler');
+const nav = document.querySelector('nav');
+const navLinks = document.querySelector('.navbar-nav');
+const header = document.querySelector(".header");
 
+navBtn.addEventListener('click', () => {
+    const isExpanded = JSON.parse(navBtn.getAttribute('aria-expanded'));
+    isExpanded && nav.classList.add('scrolled');
+});
+
+// -- INTERSECTION OBSERVERS --
+
+// Scroll Effect For Navbar
+const scrollOptions = {
+    threshold: 0,
+    rootMargin: "-35%"
+}
+
+const scroll = new IntersectionObserver(function (entry) {
+    !entry[0].isIntersecting ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
+}, scrollOptions);
+
+scroll.observe(header);
+
+// Content Animations
 const faders = document.querySelectorAll(".fade-in");
 const sliders = document.querySelectorAll(".slide-in");
 
 const appearOptions = {
     threshold: 0,
-    rootMargin: "0px 0px -150px 0px"
+    rootMargin: "0% 0% -10% 0%"
 };
 
 const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
