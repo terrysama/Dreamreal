@@ -8,6 +8,18 @@ navBtn.addEventListener('click', () => {
     isExpanded && nav.classList.add('scrolled');
 });
 
+/* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+let prevScrollPosition = window.pageYOffset;
+window.onscroll = function() {
+  let currentScrollPosition = window.pageYOffset;
+  if (prevScrollPosition > currentScrollPosition) {
+    nav.style.top = "0";
+  } else {
+    nav.style.top = -nav.offsetHeight + 'px';
+  }
+  prevScrollPosition = currentScrollPosition;
+}
+
 // -- INTERSECTION OBSERVERS --
 
 // Scroll Effect For Navbar

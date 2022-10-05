@@ -10,26 +10,6 @@ body {
     background-color: #222228;
 }
 
-.rise {
-    opacity: 0;
-    animation: rise 0.8s ease-in-out forwards;
-}
- 
-.rise.subheading {
-    animation: rise 1.2s ease-in-out forwards 0.5s;
-}
-
-@keyframes rise {
-    0% {
-        transform: translateY(2rem);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
 #home.grouped-sections {
     background: url("../../assets/img/backgrounds/Vector\ 17.svg") no-repeat, url("../../assets/img/backgrounds/home-page-background.JPG") center top no-repeat;
     background-size: cover, 100% 90%;
@@ -49,39 +29,64 @@ body {
     #about.grouped-sections {
         background: url("../../assets/img/backgrounds/Vector\ 17.svg") no-repeat, url("../../assets/img/backgrounds/about-page-background.png") center top no-repeat;
         background-size: cover, auto;
-    }    
+    }
 }
 
 .sect-one {
-    padding: 25vh 0 30vh 0;
+    padding: 25vh 0 20vh 0;
 }
 
-.main-sect, .gallery-sect {
-    padding-top: 15vh !important;
+.single-angle {
+    background: url('../../assets/img/backgrounds/Vector\ 16.svg') no-repeat;
+}
+
+@media screen and (min-width: 1441px){
+    .single-angle {
+        background: url('../../assets/img/backgrounds/Vector\ 16.svg') center no-repeat;
+        background-size: cover;
+    }
+}
+
+.double-angle {
+    background: url('../../assets/img/backgrounds/Vector\ 15.svg') center no-repeat;
+    background-size: cover;
+}
+
+@media screen and (min-width: 768px){
+    .double-angle {
+        background: url('../../assets/img/backgrounds/Vector\ 15.svg') center no-repeat;
+    }
+}
+
+.last-sect {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/img/backgrounds/studio-producer.jpg") center;
+    background-size: cover;
+    padding: 15vh 0;
+}
+
+@media screen and (max-width: 490px){
+    .last-sect {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/img/backgrounds/studio-producer-sm.png") center;
+        background-size: cover;
+        padding: 15vh 0;
+    }
+}
+
+.gradient {
+    background: linear-gradient(180deg, #21D2FE 1.04%, #42A6FC 49.48%, #677AFD 100%);
 }
 
 .angled-white-bg, .dark-text {
     color: black;
 }
-
-.single-angle {
-    background: url('../../assets/img/backgrounds/Vector\ 16.svg') no-repeat;
-    background-size: cover;
+.main-sect, .gallery-sect {
+    padding-top: 15vh !important;
 }
 
-.double-angle {
-    background: url('../../assets/img/backgrounds/Vector\ 15.svg') no-repeat;
-    background-size: cover;
-}
-
-.last-sect {
-    background: url("../../assets/img/backgrounds/studio-producer.jpg");
-    background-size: 100% 100%;
-    padding: 15vh 0;
-}
-
-.gradient {
-    background: linear-gradient(180deg, #21D2FE 1.04%, #42A6FC 49.48%, #677AFD 100%);
+@media screen and (max-width: 680px) {
+    .subheading {
+        font-size: 1rem !important;
+    }
 }
 
 /* Contact Page */
@@ -97,6 +102,27 @@ input[type="text"].form-control, input[type="email"].form-control, textarea.form
     background-color : #d1d1d165;
 }
 /* *** */
+
+/* Page animations */
+.rise {
+    opacity: 0;
+    animation: rise 0.8s ease-in-out forwards;
+}
+ 
+.rise.subheading {
+    animation: rise 1.2s ease-in-out forwards 0.5s;
+}
+
+@keyframes rise {
+    0% {
+        transform: translateY(2rem);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 
 .fade-in {
     opacity: 0;
@@ -128,6 +154,7 @@ input[type="text"].form-control, input[type="email"].form-control, textarea.form
     transform: translate3d(0, 0, 0);
     opacity: 1;
 }
+/* *** */
 
 .card {
     width: clamp(16rem, 18vw, 20rem);
@@ -163,4 +190,20 @@ footer a:hover, footer a:focus {
 
 .footer-brand-logo, .copyright {
     width: clamp(7.5rem, 15vw, 12rem);
+}
+  
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+      scroll-behavior: auto;
+    }
+  
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
 }
