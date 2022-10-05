@@ -101,7 +101,7 @@
 }
 
 .scrolled {
-    background-color: #303135b8;
+    background-color: #16171ad6;
     backdrop-filter: blur(1.25rem);
     -webkit-backdrop-filter: blur(1.25rem);
     transition: 0.5s;
