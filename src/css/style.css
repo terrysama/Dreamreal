@@ -99,7 +99,7 @@ body {
 }
 
 input[type="text"].form-control, input[type="email"].form-control, textarea.form-control, textarea.form-control:focus {
-    background-color : #d1d1d165;
+    background-color : #d1d1d100;
 }
 /* *** */
 
