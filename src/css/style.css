@@ -58,20 +58,6 @@ body {
     }
 }
 
-.last-sect {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/img/backgrounds/studio-producer.jpg") center;
-    background-size: cover;
-    padding: 15vh 0;
-}
-
-@media screen and (max-width: 490px){
-    .last-sect {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/img/backgrounds/studio-producer-sm.png") center;
-        background-size: cover;
-        padding: 15vh 0;
-    }
-}
-
 .gradient {
     background: linear-gradient(180deg, #21D2FE 1.04%, #42A6FC 49.48%, #677AFD 100%);
 }
@@ -98,8 +84,34 @@ body {
     color: white;
 }
 
-input[type="text"].form-control, input[type="email"].form-control, textarea.form-control, textarea.form-control:focus {
+input[type="text"].form-control, 
+input[type="email"].form-control,
+textarea.form-control, 
+textarea.form-control:focus {
     background-color : #d1d1d100;
+    outline: 0;
+    box-shadow: none;
+}
+
+#contactUs ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 0.9; /* Firefox */
+}
+
+#contactUs :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: black;
+}
+
+#contactUs ::-ms-input-placeholder { /* Microsoft Edge */
+    color: black;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 60000s 0s;
+}
+input[data-autocompleted] {
+    background-color: transparent !important;
 }
 /* *** */
 
@@ -176,6 +188,38 @@ img.rounded-circle {
 
 .testimonial-header, .blockquote .artiste-name, .blockquote .category {
     letter-spacing: 0.1rem;
+}
+
+.last-sect.home {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/img/backgrounds/hero_image_bottom_home.png") center;
+    background-size: cover;
+    padding: 15vh 0;
+}
+
+.last-sect.about {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/img/backgrounds/hero_image_bottom_about.png") center;
+    background-size: cover;
+    padding: 15vh 0;
+}
+
+.last-sect.services {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/img/backgrounds/studio-producer.jpg") center;
+    background-size: cover;
+    padding: 15vh 0;
+}
+
+.last-sect.talents {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/img/backgrounds/hero_image_bottom_talents.png") center;
+    background-size: cover;
+    padding: 15vh 0;
+}
+
+@media screen and (max-width: 490px){
+    .last-sect.services {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/img/backgrounds/studio-producer-sm.png") center;
+        background-size: cover;
+        padding: 15vh 0;
+    }
 }
 
 /* FOOTER */
